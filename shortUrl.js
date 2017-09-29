@@ -42,7 +42,8 @@ app.get('/:name(*)', function(req, res, next) {
     {
       var shortUrlId = Math.floor(Math.random() * (9999 - 1000) + 1000).toString();
       var newUrl = new littleUrl({ original_url : urlDataToShorten, url_id : shortUrlId });
-    newUrl.save(function(err) {
+    
+      newUrl.save(function(err) {
         if (err) return res.json({error: "There was error in saving to Database"}); 
          
     });
@@ -57,7 +58,7 @@ app.get('/:name(*)', function(req, res, next) {
 //get url_id form database and Redirect to URL
 app.get('/:redirerctname', function(req, res, next) {
   var urlIdToRedirect = (req.params.redirerctname);
-  console.log("redirect=", urlIdToRedirect);
+  res.send("redirect=", urlIdToRedirect);
    littleUrl.findOne({'url_id': urlIdToRedirect}, function(err, littleUrl) {
   if (err) return res.send('Short URL is not in Database');
    return res.redirect(301, littleUrl.original_url)   

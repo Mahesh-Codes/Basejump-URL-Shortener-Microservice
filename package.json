@@ -1,0 +1,34 @@
+{
+	"name": "url-shortener-microservice-mahesh",
+	"dependencies": {
+		"express": "^4.14.0"
+	},
+	"main": "server.js",
+	"scripts": {
+		"start": "node server.js"
+	},
+	"engines": {
+		"node": "4.4.5"
+	},
+   "dependencies": {
+    "mongodb": "^2.2.30",
+    "mongoose": ">= 3.5.6",
+    "body-parser": "~1.4.3",
+    "cors": "^2.5.2",
+    "express": "^4.15.3"
+  },
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Mahesh-Codes/url-Shortner-microservice
+"
+	
+},
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "glitch",
+    "express",
+    "smalurl",
+    "FreeCodeCamp"
+  ]
+}

@@ -28,6 +28,7 @@ app.route('/_api/package.json')
     });
   });
 
+
 app.route('/')
     .get(function(req, res) {
 		  res.sendFile(process.cwd() + '/views/index.html');
@@ -40,23 +41,29 @@ app.get('/:name(*)', function(req, res, next) {
   var regexp = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g;
     if (regexp.test(urlDataToShorten)) 
     {
+      console.log("passed regex = ", urlDataToShorten);
       var shortUrlId = Math.floor(Math.random() * (9999 - 1000) + 1000).toString();
       var newUrl = new littleUrl({ original_url : urlDataToShorten, url_id : shortUrlId });
     
       newUrl.save(function(err) {
-        if (err) return res.json({error: "There was error in saving to Database"}); 
-         
+        if (err) {
+          console.log("passed error trap in save = ", urlDataToShorten);
+          return res.json({error: "There was error in saving to Database"}); 
+          }
     });
+    console.log("saved and returned = ", urlDataToShorten);  
      return res.json({"Original_url": urlDataToShorten, "Short_url": shortUrlId}); // respose is new short url 
     } 
   //failed
- res.json({"Original_url": "Incorrect or Non Standard format" });
-  
+  console.log("Incorrect URL, Not saved = ", urlDataToShorten); 
+ return res.json({"Original_url": "Incorrect or Non Standard format" });
+ 
 });
 
 
 //get url_id form database and Redirect to URL
 app.get('/:redirerctname', function(req, res, next) {
+  console.log("entering redirect"); 
   var urlIdToRedirect = (req.params.redirerctname);
   res.send("redirect=", urlIdToRedirect);
    littleUrl.findOne({'url_id': urlIdToRedirect}, function(err, littleUrl) {
@@ -73,3 +80,4 @@ app.listen(process.env.PORT, function () {
 });
 
 
+console.log("entering redirect"); 

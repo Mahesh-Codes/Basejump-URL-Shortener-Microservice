@@ -6,4 +6,4 @@
 - If I pass an invalid URL that doesn't follow the valid http://www.example.com format, the JSON response will contain an error instead.
 - User Story: When I visit that shortened URL, it will redirect me to my original link.
 - If I pass an invalid URL that doesn't follow the valid http://www.example.com format, the JSON response will contain an error instead
-- Extra: If I enter a saved URL or saved shortened URL, it will fatch saved URL or redirect me to saved link
+- Extra: If I enter a saved URL or saved shortened URL, it will either fetch saved URL or redirect me to saved link.

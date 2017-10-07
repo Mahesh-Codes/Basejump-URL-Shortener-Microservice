@@ -1,5 +1,5 @@
 {
-	"name": "url-shortener-microservice-mahesh",
+	"name": "Basejump URL Shortener Microservice",
 	"dependencies": {
 		"express": "^4.14.0"
 	},
@@ -19,7 +19,7 @@
   },
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/Mahesh-Codes/url-Shortner-microservice"
+		"url": "https://github.com/Mahesh-Codes/Basejump-URL-Shortener-Microservice"
 	
 },
   "license": "MIT",
